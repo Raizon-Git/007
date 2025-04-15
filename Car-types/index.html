@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+             text-align: center;
+             padding: 50px;
+             transition: background-color 0.5s ease;
+             color: #333;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        #car-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .car-btn {
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background-color: #f0f0f0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .car-btn:hover {
+            transform: translatey(-2px);
+            background-color: #e0e0e0;
+        }
+
+        #response {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: 20px;     
+        }
+    </style>
+</head>
+<body>
+    <h2>What type of Car do you like to drive?</h2>
+    <div id="car-buttons">
+        <button class="car-btn" data-car="Family Car">😇 Family Car</button>
+        <button class="car-btn" data-car="Hybrid">😏 Hybrid</button>
+        <button class="car-btn" data-car="Electric Car">😡 Electric Car</button>
+        <button class="car-btn" data-car="Sports Car">😙 Sports Car</button>
+        <button class="car-btn" data-car="Muscle Car">😎 Muscle Car</button>
+    </div>
+    <p id="response"></p>
+    <script>
+        const buttons = document.querySelectorAll(".car-btn");
+        const response = document.getElementById("response");
+
+        buttons.forEach (button => {
+            button.addEventListener("click", () => {
+                const car = button.dataset.car;
+
+                if (car === "Family Car") {
+                    response.textContent = "😇 , Built for the journeys that bring your family closer.";
+                    document.body.style.background = "linear-gradient(to right, #fceabb, #f8b500)"
+                } else if (car==="Hybrid") {
+                    response.textContent = "😏, Efficiency meets innovation—drive smarter, go farther.";
+                    document.body.style.background = "linear-gradient(to right, #83a4d4, #b6fbff)";
+                } else if (car==="Electric Car") {
+                    response.textContent = "😡, I think you don't care about your family!";
+                    document.body.style.background = "linear-gradient(to right, #e52d27, #b31217)";
+                } else if (car==="Sports Car") {
+                    response.textContent = "😙, Unleash the thrill. Born to perform, built to dominate.";
+                    document.body.style.background = "linear-gradient(to right, #bdc3c7, #2c3e50)";
+                } else {
+                    response.textContent = "😎, Raw power. Pure muscle. A legend reborn.";
+                    document.body.style.background = "linear-gradient(to right, #ffecd2, #fcd69f)";
+                }
+            });
+        });
+    </script>
+</body>
+</html>
